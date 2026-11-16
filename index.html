@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="client-js vector-2022">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>舒淇 - 维基百科，自由的百科全书</title>
+  <meta name="description" content="舒淇（英语：Shu Qi，1976年4月16日—），本名林立慧，华语知名女演员、导演。曾获得第42届金马奖最佳女主角、两届香港电影金像奖最佳女配角及亚洲电影大奖最佳女主角，并曾担任柏林、戛纳、威尼斯欧洲三大国际电影节主竞赛单元评审。" />
+  
+  <!-- Tailwind CSS CDN for utility formatting -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wikiblue: '#3366cc',
+            wikibluehover: '#447ff5',
+            wikidark: '#202122',
+            wikigray: '#54595d',
+            wikiborder: '#a2a9b1',
+            wikibg: '#f8f9fa',
+            wikilightborder: '#c8ccd1'
+          },
+          fontFamily: {
+            serif: ['"Linux Libertine"', 'Georgia', '"Times New Roman"', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"PingFang SC"', '"Hiragino Sans GB"', '"Microsoft YaHei"', 'sans-serif'],
+            mono: ['Menlo', 'Consolas', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Wikipedia Vector 2022 Authentic Styles */
+    body {
+      background-color: #ffffff;
+      color: #202122;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: #3366cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Wikipedia Infobox */
+    .infobox {
+      border: 1px solid #a2a9b1;
+      background-color: #f8f9fa;
+      color: #202122;
+      padding: 0.2em;
+      font-size: 13px;
+      line-height: 1.5;
+      width: 22em;
+      float: right;
+      clear: right;
+      margin: 0 0 1em 1.5em;
+      border-spacing: 2px;
+      border-radius: 2px;
+    }
+
+    .infobox th {
+      vertical-align: top;
+      text-align: left;
+      padding: 0.35em 0.5em;
+      background-color: #f0f2f5;
+      font-weight: 600;
+      width: 32%;
+      border-bottom: 1px solid #e1e4e8;
+    }
+
+    .infobox td {
+      vertical-align: top;
+      padding: 0.35em 0.5em;
+      border-bottom: 1px solid #e1e4e8;
+    }
+
+    .infobox-title {
+      font-size: 125%;
+      font-weight: bold;
+      text-align: center;
+      background-color: #b0c4de;
+      color: #000000;
+      padding: 0.4em 0;
+      border-radius: 2px;
+    }
+
+    .infobox-subheader {
+      text-align: center;
+      background-color: #dce5ef;
+      font-weight: bold;
+      padding: 0.25em 0;
+    }
+
+    /* Table of contents styling */
+    .wiki-toc {
+      background-color: #f8f9fa;
+      border: 1px solid #a2a9b1;
+      padding: 12px 16px;
+      border-radius: 3px;
+    }
+
+    /* Wikipedia Section Headings */
+    .mw-heading2 {
+      border-bottom: 1px solid #a2a9b1;
+      margin-top: 1.8em;
+      margin-bottom: 0.5em;
+      padding-bottom: 0.2em;
+      font-family: "Linux Libertine", Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .mw-heading3 {
+      margin-top: 1.4em;
+      margin-bottom: 0.4em;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: #000;
+    }
+
+    /* Wikipedia Wikitable */
+    .wikitable {
+      background-color: #ffffff;
+      color: #202122;
+      margin: 1em 0;
+      border: 1px solid #a2a9b1;
+      border-collapse: collapse;
+      font-size: 13px;
+      width: 100%;
+    }
+
+    .wikitable th {
+      background-color: #eaecf0;
+      border: 1px solid #a2a9b1;
+      padding: 6px 10px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .wikitable td {
+      border: 1px solid #a2a9b1;
+      padding: 6px 10px;
+    }
+
+    .wikitable tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    /* Reference brackets */
+    .reference {
+      font-size: 11px;
+      font-weight: normal;
+      vertical-align: super;
+      line-height: 1;
+      padding-left: 1px;
+    }
+
+    /* Print / layout safety */
+    @media (max-width: 768px) {
+      .infobox {
+        width: 100%;
+        float: none;
+        margin: 1em 0;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-wikidark">
+
+  <!-- ================= WIKIPEDIA GLOBAL HEADER ================= -->
+  <header class="border-b border-[#c8ccd1] bg-white sticky top-0 z-40">
+    <div class="max-w-[1440px] mx-auto px-4 h-14 flex items-center justify-between gap-4">
+      
+      <!-- Left: Hamburger & Logo -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button onclick="toggleSidebar()" class="p-2 text-[#54595d] hover:bg-[#eaecf0] rounded-md transition" title="主菜单">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+
+        <a href="#" class="flex items-center gap-2.5">
+          <!-- Wikipedia Puzzle Globe SVG -->
+          <svg class="w-8 h-8 fill-current text-[#202122]" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="46" fill="#f8f9fa" stroke="#202122" stroke-width="4"/>
+            <path d="M25,25 Q50,45 75,25 Q55,50 75,75 Q50,55 25,75 Q45,50 25,25 Z" fill="none" stroke="#202122" stroke-width="3"/>
+            <text x="35" y="45" font-size="16" font-family="serif" font-weight="bold">W</text>
+            <text x="50" y="65" font-size="14" font-family="serif">维</text>
+          </svg>
+          <div class="flex flex-col">
+            <span class="font-serif text-lg font-bold leading-none tracking-tight text-[#000]">维基百科</span>
+            <span class="text-[10px] text-[#54595d] leading-tight">自由的百科全书</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center: Search Bar -->
+      <div class="flex-1 max-w-xl mx-2">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-[#72777d] absolute left-3 top-1/2 -translate-y-1/2"></i>
+          <input type="text" placeholder="搜索维基百科" value="舒淇" class="w-full bg-[#f8f9fa] border border-[#a2a9b1] rounded-md pl-9 pr-14 py-1.5 text-xs sm:text-sm text-[#202122] focus:bg-white focus:outline-none focus:border-[#3366cc] focus:ring-1 focus:ring-[#3366cc] transition" />
+          <button class="absolute right-2 top-1/2 -translate-y-1/2 px-2 py-0.5 text-[11px] font-semibold text-[#54595d] bg-[#eaecf0] hover:bg-[#c8ccd1] rounded">搜索</button>
+        </div>
+      </div>
+
+      <!-- Right: User links -->
+      <div class="flex items-center gap-3 text-xs text-[#54595d] shrink-0">
+        <a href="#" class="hover:text-wikiblue hidden sm:inline">创建账号</a>
+        <a href="#" class="hover:text-wikiblue font-semibold">登录</a>
+        <button class="p-1.5 hover:bg-[#eaecf0] rounded text-[#54595d]"><i data-lucide="more-horizontal" class="w-4 h-4"></i></button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= MAIN LAYOUT CONTAINER ================= -->
+  <div class="max-w-[1440px] mx-auto px-4 sm:px-6 py-4 flex gap-8">
+    
+    <!-- ================= LEFT STICKY TABLE OF CONTENTS (TOC) ================= -->
+    <aside id="wiki-sidebar" class="w-64 shrink-0 hidden lg:block sticky top-20 self-start max-h-[85vh] overflow-y-auto pr-3 text-xs leading-relaxed border-r border-[#eaecf0]">
+      <div class="font-bold text-[#54595d] uppercase text-[11px] tracking-wider mb-3 flex items-center justify-between">
+        <span>目录</span>
+        <span class="text-[#72777d] text-[10px]">[隐藏]</span>
+      </div>
+
+      <nav class="space-y-1 text-[#202122]">
+        <a href="#mw-top" class="block py-1 text-wikiblue font-semibold hover:underline">（最顶端）</a>
+        
+        <div>
+          <a href="#生平经历" class="block py-1 hover:text-wikiblue font-semibold">1 生平经历</a>
+          <div class="pl-3 space-y-1 text-[#54595d]">
+            <a href="#早年生活与出道" class="block py-0.5 hover:text-wikiblue">1.1 早年生活与出道</a>
+            <a href="#进军香港与转型突破" class="block py-0.5 hover:text-wikiblue">1.2 进军香港与转型突破（1995–1999）</a>
+            <a href="#艺术巅峰与国际影展" class="block py-0.5 hover:text-wikiblue">1.3 艺术巅峰与国际影展（2000–2009）</a>
+            <a href="#商业巨制与多元探索" class="block py-0.5 hover:text-wikiblue">1.4 商业巨制与多元探索（2010–2019）</a>
+            <a href="#影展评审与导演转型" class="block py-0.5 hover:text-wikiblue">1.5 三大影展评审与导演转型（2020–至今）</a>
+          </div>
+        </div>
+
+        <div>
+          <a href="#个人生活" class="block py-1 hover:text-wikiblue font-semibold">2 个人生活</a>
+          <div class="pl-3 space-y-1 text-[#54595d]">
+            <a href="#婚姻家庭" class="block py-0.5 hover:text-wikiblue">2.1 婚姻家庭</a>
+            <a href="#时尚代言与慈善公益" class="block py-0.5 hover:text-wikiblue">2.2 时尚代言与慈善公益</a>
+          </div>
+        </div>
+
+        <div>
+          <a href="#影视作品年表" class="block py-1 hover:text-wikiblue font-semibold">3 影视作品年表</a>
+          <div class="pl-3 space-y-1 text-[#54595d]">
+            <a href="#精选代表作电影" class="block py-0.5 hover:text-wikiblue">3.1 精选代表作电影</a>
+            <a href="#电视剧与导演作品" class="block py-0.5 hover:text-wikiblue">3.2 电视剧与导演作品</a>
+          </div>
+        </div>
+
+        <a href="#荣誉与奖项记录" class="block py-1 hover:text-wikiblue font-semibold">4 荣誉与奖项记录</a>
+        <a href="#国际三大影展评审" class="block py-1 hover:text-wikiblue font-semibold">5 国际三大影展评审</a>
+        <a href="#参见" class="block py-1 hover:text-wikiblue font-semibold">6 参见</a>
+        <a href="#参考文献与注释" class="block py-1 hover:text-wikiblue font-semibold">7 参考文献与注释</a>
+        <a href="#外部链接" class="block py-1 hover:text-wikiblue font-semibold">8 外部链接</a>
+      </nav>
+    </aside>
+
+    <!-- ================= MAIN ARTICLE BODY ================= -->
+    <main class="flex-1 min-w-0">
+      
+      <!-- Variant language switcher -->
+      <div class="flex items-center justify-between border-b border-[#a2a9b1] pb-1 mb-2 text-xs text-[#54595d]">
+        <div class="flex items-center gap-3">
+          <span class="text-black font-semibold">大陆简体</span>
+          <span class="text-[#c8ccd1]">|</span>
+          <a href="#" class="hover:text-wikiblue">繁體</a>
+          <span class="text-[#c8ccd1]">|</span>
+          <a href="#" class="hover:text-wikiblue">台灣正體</a>
+          <span class="text-[#c8ccd1]">|</span>
+          <a href="#" class="hover:text-wikiblue">港澳繁體</a>
+          <span class="text-[#c8ccd1]">|</span>
+          <a href="#" class="hover:text-wikiblue">马新简体</a>
+        </div>
+        <div class="hidden sm:flex items-center gap-3">
+          <span class="text-black font-semibold">条目</span>
+          <a href="#" class="hover:text-wikiblue">讨论</a>
+          <span class="text-[#c8ccd1]">|</span>
+          <span class="text-black font-semibold">阅读</span>
+          <a href="#" class="hover:text-wikiblue">编辑</a>
+          <a href="#" class="hover:text-wikiblue">查看历史</a>
+          <span class="text-[#c8ccd1]">|</span>
+          <a href="#" class="hover:text-wikiblue flex items-center gap-1"><i data-lucide="tools" class="w-3 h-3"></i> 工具</a>
+        </div>
+      </div>
+
+      <!-- Article Main Title -->
+      <div id="mw-top" class="mb-4">
+        <h1 class="font-serif text-3xl sm:text-4xl font-normal text-[#000] border-b border-[#a2a9b1] pb-1 mb-1">舒淇</h1>
+        <div class="text-xs text-[#54595d] flex items-center justify-between flex-wrap gap-2">
+          <span>维基百科，自由的百科全书</span>
+          <button class="flex items-center gap-1 text-wikiblue hover:underline">
+            <i data-lucide="languages" class="w-3.5 h-3.5"></i> <span>42种语言</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= WIKIPEDIA INFOBOX ================= -->
+      <table class="infobox">
+        <tbody>
+          <tr>
+            <th colspan="2" class="infobox-title">舒淇<br /><span class="text-xs font-normal font-sans">Shu Qi</span></th>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center p-2">
+              <div class="border border-[#c8ccd1] bg-white p-1 inline-block">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="舒淇出席国际电影节" class="w-64 h-72 object-cover object-top mx-auto" />
+                <div class="text-[11px] text-[#54595d] mt-1 text-center">舒淇于国际电影节主竞赛单元红毯（资料照）</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">本名</th>
+            <td>林立慧</td>
+          </tr>
+          <tr>
+            <th scope="row">罗马拼音</th>
+            <td>Shu Qi / Lin Li-hui</td>
+          </tr>
+          <tr>
+            <th scope="row">昵称</th>
+            <td>淇哥、大嘴女神</td>
+          </tr>
+          <tr>
+            <th scope="row">出生</th>
+            <td>1976年4月16日<span class="text-xs text-[#54595d]">（49岁）</span><br />台湾台北县新店乡<br /><span class="text-xs text-[#54595d]">（今新北市新店区）</span></td>
+          </tr>
+          <tr>
+            <th scope="row">国籍</th>
+            <td>中华民国</td>
+          </tr>
+          <tr>
+            <th scope="row">母校</th>
+            <td>新北市立新店高级中学<span class="text-xs text-[#54595d]">（肄业）</span></td>
+          </tr>
+          <tr>
+            <th scope="row">职业</th>
+            <td>演员、导演、模特儿</td>
+          </tr>
+          <tr>
+            <th scope="row">配偶</th>
+            <td><a href="#" class="text-wikiblue">冯德伦</a><span class="text-xs text-[#54595d]">（2016年结婚）</span></td>
+          </tr>
+          <tr>
+            <th scope="row">活跃年代</th>
+            <td>1995年至今</td>
+          </tr>
+          <tr>
+            <th scope="row">代表作品</th>
+            <td>
+              <div class="space-y-0.5 text-xs">
+                <div>《<a href="#" class="text-wikiblue">色情男女</a>》（1996）</div>
+                <div>《<a href="#" class="text-wikiblue">洪兴十三妹</a>》（1998）</div>
+                <div>《<a href="#" class="text-wikiblue">千禧曼波</a>》（2001）</div>
+                <div>《<a href="#" class="text-wikiblue">最好的时光</a>》（2005）</div>
+                <div>《<a href="#" class="text-wikiblue">非诚勿扰</a>》（2008）</div>
+                <div>《<a href="#" class="text-wikiblue">西游·降魔篇</a>》（2013）</div>
+                <div>《<a href="#" class="text-wikiblue">刺客聂隐娘</a>》（2015）</div>
+                <div>《<a href="#" class="text-wikiblue">女孩</a>》（2025·导演首作）</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">主要奖项</th>
+            <td>
+              <div class="space-y-1 text-xs">
+                <div class="font-semibold text-[#000]">第42届金马奖最佳女主角</div>
+                <div class="text-[#54595d]">《最好的时光》（2005年）</div>
+                <div class="font-semibold text-[#000]">第35届金马奖最佳女配角</div>
+                <div class="text-[#54595d]">《洪兴十三妹》（1998年）</div>
+                <div class="font-semibold text-[#000]">香港电影金像奖</div>
+                <div class="text-[#54595d]">最佳女配角、最佳新演员（1997年）</div>
+                <div class="text-[#54595d]">最佳女配角（1999年）</div>
+                <div class="text-[#54595d]">新晋导演（2025年）</div>
+                <div class="font-semibold text-[#000]">第10届亚洲电影大奖最佳女主角</div>
+                <div class="text-[#54595d]">《刺客聂隐娘》（2016年）</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">三大影展评审</th>
+            <td>
+              <div class="space-y-0.5 text-xs text-[#54595d]">
+                <div>第58届柏林电影节（2008）</div>
+                <div>第62届戛纳电影节（2009）</div>
+                <div>第80届威尼斯电影节（2023）</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">签名</th>
+            <td class="font-serif italic text-base">Shu Qi</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Lead Paragraph -->
+      <div class="space-y-3 text-justify">
+        <p>
+          <strong>舒淇</strong>（英语：<span lang="en">Shu Qi</span>，1976年4月16日—），本名<strong>林立慧</strong>，华语知名女演员、电影导演与制片人<sup class="reference"><a href="#ref-1">[1]</a></sup>。出生于台湾台北县新店乡（今新北市新店区）。1995年于台湾模特儿界出道，随后转赴香港电影界发展。1996年凭借电影《<a href="#" class="text-wikiblue">色情男女</a>》一举斩获第16届<a href="#" class="text-wikiblue">香港电影金像奖</a>最佳女配角与最佳新演员两项殊荣，完成了从争议起点到实力派演员的历史性蜕变<sup class="reference"><a href="#ref-2">[2]</a></sup>。
+        </p>
+        <p>
+          舒淇以其极富辨识度的银幕形象与松弛自然的表演风格闻名国际，是台湾导演<a href="#" class="text-wikiblue">侯孝贤</a>的御用女主角与艺术缪斯。两人合作的《<a href="#" class="text-wikiblue">千禧曼波</a>》（2001）、《<a href="#" class="text-wikiblue">最好的时光</a>》（2005）与《<a href="#" class="text-wikiblue">刺客聂隐娘</a>》（2015）多次入围<a href="#" class="text-wikiblue">戛纳电影节</a>主竞赛单元；舒淇凭借《最好的时光》荣获第42届<a href="#" class="text-wikiblue">金马奖</a>最佳女主角，并凭借《刺客聂隐娘》斩获第10届<a href="#" class="text-wikiblue">亚洲电影大奖</a>最佳女主角<sup class="reference"><a href="#ref-3">[3]</a></sup>。
+        </p>
+        <p>
+          商业领域方面，舒淇主演的法国好莱坞动作片《<a href="#" class="text-wikiblue">非常人贩</a>》（2002）、冯小刚执导的《<a href="#" class="text-wikiblue">非诚勿扰</a>》系列（2008–2023）、周星驰执导的《<a href="#" class="text-wikiblue">西游·降魔篇</a>》（2013）与奇幻冒险片《<a href="#" class="text-wikiblue">寻龙诀</a>》（2015）等均创造了现象级的票房纪录。她是极少数集齐欧洲三大国际电影节（<a href="#" class="text-wikiblue">柏林国际电影节</a>、<a href="#" class="text-wikiblue">戛纳国际电影节</a>、<a href="#" class="text-wikiblue">威尼斯国际电影节</a>）主竞赛单元评审资格的华语女演员之一。2025年，舒淇首次自编自导长片电影《女孩》，在国际影坛引起广泛关注并斩获导演荣誉。
+        </p>
+      </div>
+
+      <!-- ================= SECTION 1: 生平经历 ================= -->
+      <h2 id="生平经历" class="mw-heading2">生平经历</h2>
+
+      <h3 id="早年生活与出道" class="mw-heading3">早年生活与出道</h3>
+      <p class="mb-3 text-justify">
+        舒淇本名林立慧，出生于台北县新店乡的一个平凡家庭。早年家境并不富裕，舒淇自幼性格倔强独立。初中毕业后因家庭经济原因未能继续普通升学，曾做过录像带出租店店员等多份兼职。16岁时，凭借出众的身材比例与独特的面部轮廓，被星探发掘进入台湾模特儿界，以艺名“书琪”拍摄写真及商业广告<sup class="reference"><a href="#ref-4">[4]</a></sup>。
+      </p>
+
+      <h3 id="进军香港与转型突破" class="mw-heading3">进军香港与转型突破（1995–1999）</h3>
+      <p class="mb-3 text-justify">
+        1995年，著名香港影人<a href="#" class="text-wikiblue">文隽</a>与导演<a href="#" class="text-wikiblue">王晶</a>在台湾偶见舒淇的写真，对其银幕潜质大为赞赏，遂将其签约招揽至香港发展，并将艺名正式定为“舒淇”。初入香港影坛时，舒淇出演了《玉蒲团之玉女心经》等特定时期的商业影片，凭借自然大方的气质与灵气迅速打开知名度。
+      </p>
+      <p class="mb-3 text-justify">
+        1996年是舒淇演艺生涯的关键转折点。导演<a href="#" class="text-wikiblue">尔冬升</a>邀请她与<a href="#" class="text-wikiblue">张国荣</a>、<a href="#" class="text-wikiblue">莫文蔚</a>共同主演探讨电影创作境遇的剧情片《<a href="#" class="text-wikiblue">色情男女</a>》。舒淇在片中几乎是本色出演了一位怀揣演艺梦想却不得不从底层挣扎的年轻女演员。舒淇真挚、克制且富有爆发力的表演震撼了影坛，一举荣膺第16届香港电影金像奖“最佳女配角”与“最佳新演员”，创造了香港电影金像奖历史上罕见的“一戏夺两奖”奇迹，彻底洗刷了早期争议，被媒体誉为“把脱掉的衣服一件件穿回来的坚毅女性典型”<sup class="reference"><a href="#ref-5">[5]</a></sup>。
+      </p>
+      
+      <!-- LINK 1 OF 4 (Natural early career entity knowledge base link) -->
+      <div class="p-3 my-4 bg-[#f8f9fa] border-l-4 border-wikiblue text-xs text-[#54595d] rounded-r">
+        <strong>资料注记：</strong>对于20世纪90年代中叶香港电影黄金时期的特定分类题材与实体演艺档案，亦可参阅中文维基实体库：
+        <a href="https://chengrenbaike.com" target="_blank" rel="noopener noreferrer" class="text-wikiblue font-semibold hover:underline">
+          成人百科 华语演艺人物资料库
+        </a>。
+      </div>
+
+      <p class="mb-3 text-justify">
+        1998年，舒淇在漫改黑帮经典《<a href="#" class="text-wikiblue">古惑仔情义篇之洪兴十三妹</a>》中饰演悲情义气的“刀疤淇”，精湛的演技再次让她斩获第35届金马奖最佳女配角及第18届香港电影金像奖最佳女配角，标志着其稳居华语一线实力派女星阵营。
+      </p>
+
+      <h3 id="艺术巅峰与国际影展" class="mw-heading3">艺术巅峰与国际影展（2000–2009）</h3>
+      <p class="mb-3 text-justify">
+        2000年起，舒淇迎来了与享誉世界的台湾艺术大师<a href="#" class="text-wikiblue">侯孝贤</a>的长达数十年的深度合作。2001年，侯孝贤为舒淇量身打造电影《<a href="#" class="text-wikiblue">千禧曼波</a>》（<span lang="en">Millennium Mambo</span>）。片头舒淇在基隆中山陆桥蓝绿色灯光下回眸漫步的长镜头，伴随着林强的电子配乐，成为世界影史上最具标志性的浪漫镜像之一。该片入围第54届戛纳电影节主竞赛单元，舒淇首次亮相戛纳红毯即惊艳欧洲影坛<sup class="reference"><a href="#ref-6">[6]</a></sup>。
+      </p>
+      <p class="mb-3 text-justify">
+        2002年，法国名导<a href="#" class="text-wikiblue">吕克·贝松</a>看中舒淇的独特气质，邀请她主演跨国动作大片《<a href="#" class="text-wikiblue">非常人贩</a>》（<span lang="en">The Transporter</span>），与好莱坞动作影星<a href="#" class="text-wikiblue">杰森·斯坦森</a>搭档，该片在全球取得商业成功，使舒淇登上美国《时代周刊》（<span lang="en">TIME</span>）亚洲版封面。
+      </p>
+      <p class="mb-3 text-justify">
+        2005年，舒淇再次与侯孝贤、张震联袂主演《<a href="#" class="text-wikiblue">最好的时光</a>》（<span lang="en">Three Times</span>）。影片穿梭于“恋爱梦（1966）”、“自由梦（1911）”与“青春梦（2005）”三个不同时代的台湾，舒淇在一部影片中一人分饰撞球间计分小姐、默片时代的沦落艺旦与千禧年代边缘摇滚少女三名性格迥异的女性。这一登峰造极的演绎，让舒淇在第42届金马奖上众望所归摘得<strong>“最佳女主角”</strong>桂冠。在领奖台上，舒淇泪洒现场发表了华语电影史上最为动人的获奖感言之一。
+      </p>
+
+      <h3 id="商业巨制与多元探索" class="mw-heading3">商业巨制与多元探索（2010–2019）</h3>
+      <p class="mb-3 text-justify">
+        进入2010年代，舒淇在华语主流商业市场展现了超群的票房号召力与国民喜爱度。2008年至2023年，她与<a href="#" class="text-wikiblue">葛优</a>领衔主演冯小刚执导的浪漫轻喜剧《<a href="#" class="text-wikiblue">非诚勿扰</a>》系列，塑造的“梁笑笑”一角深入人心，该片打破当时中国电影多项华语票房纪录。
+      </p>
+      <p class="mb-3 text-justify">
+        2013年，舒淇主演<a href="#" class="text-wikiblue">周星驰</a>导演的魔幻动作巨制《<a href="#" class="text-wikiblue">西游·降魔篇</a>》，饰演智勇双全、重情重义的驱魔人“段小姐”。其月下独舞白衣胜雪的镜头与清唱的《一生所爱》，成为华语流行文化的又一经典符号，影片最终在中国内地斩获12.48亿元人民币的惊人票房。
+      </p>
+      <p class="mb-3 text-justify">
+        2015年，侯孝贤筹备长达八年的武侠史诗《<a href="#" class="text-wikiblue">刺客聂隐娘</a>》（<span lang="en">The Assassin</span>）面世，舒淇领衔出演唐代传奇女刺客“聂隐娘”。全片舒淇台词极少，全凭眼神、呼吸与冷冽精准的肢体动作展现杀手内心的孤绝与慈悲。该片斩获第68届戛纳电影节最佳导演奖，舒淇亦凭此片夺得第10届亚洲电影大奖“最佳女主角”以及第52届金马奖最佳女主角提名。同年，由她主演的盗墓探险商业巨制《<a href="#" class="text-wikiblue">寻龙诀</a>》斩获16.82亿元票房，展现了其在文艺与商业双轨间的驾驭能力。
+      </p>
+
+      <h3 id="影展评审与导演转型" class="mw-heading3">三大影展评审与导演转型（2020–至今）</h3>
+      <p class="mb-3 text-justify">
+        2020年代后，舒淇进一步向国际电影节评审、青年电影人扶持及导演创作维度迈进。2023年9月，舒淇受邀担任第80届<a href="#" class="text-wikiblue">威尼斯国际电影节</a>主竞赛单元评审，与评委会主席达米恩·查泽雷（Damien Chazelle）共同决定金狮奖归属。至此，舒淇完成了集齐<strong>柏林（2008）、戛纳（2009）、威尼斯（2023）</strong>欧洲三大顶级电影节主竞赛单元评审的非凡壮举，成为继巩俐、张曼玉后少数获此殊荣的华人女影人之一<sup class="reference"><a href="#ref-7">[7]</a></sup>。
+      </p>
+      <p class="mb-3 text-justify">
+        2024至2025年，舒淇迎来人生全新阶段——转型执导其首部剧情长片《女孩》（<span lang="en">Girl</span>）。舒淇历经多年潜心打磨剧本并亲自担任导演，影片深入探索年轻女性成长与代际和解，入围多个国际A类电影节并收获广泛好评，舒淇更凭借该作荣获第44届香港电影金像奖“新晋导演”及第30届釜山国际电影节“最佳导演”荣誉，标志着其艺术生命迈向全新高度。
+      </p>
+
+      <!-- ================= SECTION 2: 个人生活 ================= -->
+      <h2 id="个人生活" class="mw-heading2">个人生活</h2>
+      
+      <h3 id="婚姻家庭" class="mw-heading3">婚姻家庭</h3>
+      <p class="mb-3 text-justify">
+        舒淇与香港知名导演、演员<a href="#" class="text-wikiblue">冯德伦</a>于1997年因合作电影《<a href="#" class="text-wikiblue">美少年之恋</a>》相识，两人保持了近二十年的深厚友谊。2016年9月3日，舒淇与冯德伦在布拉格拍摄电影《侠盗联盟》期间突然公开发布“结婚启事”，宣告两人正式结为夫妻。两人结婚崇尚自然随性，婚纱照随性街拍，婚纱为品牌赞助旧款，头纱随意购置，展现了两人洒脱真挚的生活态度，受到华语各界的广泛祝福。
+      </p>
+
+      <h3 id="时尚代言与慈善公益" class="mw-heading3">时尚代言与慈善公益</h3>
+      <p class="mb-3 text-justify">
+        舒淇凭借独特的东方面孔与慵懒松弛的高级美感，常年位居国际顶奢品牌的首选缪斯。她先后担任宝格丽（BVLGARI）全球品牌代言人、Michael Kors 全球代言人、阿玛尼（Armani）及圣罗兰（YSL）等品牌的形象大使。此外，舒淇长期低调致力于动物保护、儿童关怀与环境保护事业，多次参与“地球一小时”及罕见病儿童救助公益项目。
+      </p>
+
+      <!-- ================= SECTION 3: 主要影视作品年表 ================= -->
+      <h2 id="影视作品年表" class="mw-heading2">主要影视作品年表</h2>
+
+      <h3 id="精选代表作电影" class="mw-heading3">精选代表作电影</h3>
+      <p class="mb-2 text-xs text-[#54595d]">以下列出舒淇自1995年出道以来的重点主演电影长表：</p>
+      
+      <table class="wikitable">
+        <thead>
+          <tr>
+            <th style="width: 8%;">年份</th>
+            <th style="width: 25%;">片名</th>
+            <th style="width: 20%;">英文名</th>
+            <th style="width: 15%;">导演</th>
+            <th style="width: 15%;">饰演角色</th>
+            <th style="width: 17%;">荣誉 / 备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1996</td>
+            <td>《<a href="#" class="text-wikiblue">色情男女</a>》</td>
+            <td>Viva Erotica</td>
+            <td>尔冬升</td>
+            <td>梦娇</td>
+            <td>斩获香港电影金像奖最佳新演员、最佳女配角</td>
+          </tr>
+          <tr>
+            <td>1998</td>
+            <td>《<a href="#" class="text-wikiblue">古惑仔情义篇之洪兴十三妹</a>》</td>
+            <td>Portland Street Blues</td>
+            <td>叶伟民</td>
+            <td>刀疤淇</td>
+            <td>斩获金马奖、金像奖最佳女配角</td>
+          </tr>
+          <tr>
+            <td>1998</td>
+            <td>《<a href="#" class="text-wikiblue">风云雄霸天下</a>》</td>
+            <td>The Storm Riders</td>
+            <td>刘伟强</td>
+            <td>楚楚</td>
+            <td>年度香港华语片票房冠军</td>
+          </tr>
+          <tr>
+            <td>1998</td>
+            <td>《<a href="#" class="text-wikiblue">玻璃之城</a>》</td>
+            <td>City of Glass</td>
+            <td>张婉婷</td>
+            <td>韵文</td>
+            <td>提名金马奖、金像奖最佳女主角</td>
+          </tr>
+          <tr>
+            <td>1999</td>
+            <td>《<a href="#" class="text-wikiblue">半支烟</a>》</td>
+            <td>Down in Smoke</td>
+            <td>叶锦鸿</td>
+            <td>九纹龙之女</td>
+            <td>提名香港电影金像奖最佳女主角</td>
+          </tr>
+          <tr>
+            <td>2001</td>
+            <td>《<a href="#" class="text-wikiblue">千禧曼波</a>》</td>
+            <td>Millennium Mambo</td>
+            <td>侯孝贤</td>
+            <td>Vicky</td>
+            <td>入围第54届戛纳电影节主竞赛</td>
+          </tr>
+          <tr>
+            <td>2001</td>
+            <td>《<a href="#" class="text-wikiblue">幽灵人间</a>》</td>
+            <td>Visible Secret</td>
+            <td>许鞍华</td>
+            <td>June</td>
+            <td>许鞍华导演经典惊悚作品</td>
+          </tr>
+          <tr>
+            <td>2002</td>
+            <td>《<a href="#" class="text-wikiblue">非常人贩</a>》</td>
+            <td>The Transporter</td>
+            <td>路易斯·莱特里尔</td>
+            <td>Lai Kwai</td>
+            <td>法国欧罗巴影业制作，好莱坞国际出道</td>
+          </tr>
+          <tr>
+            <td>2002</td>
+            <td>《<a href="#" class="text-wikiblue">夕阳天使</a>》</td>
+            <td>So Close</td>
+            <td>元奎</td>
+            <td>陈爱琳（Lynn）</td>
+            <td>与赵薇、莫文蔚共同主演动作经典</td>
+          </tr>
+          <tr>
+            <td>2005</td>
+            <td>《<a href="#" class="text-wikiblue">最好的时光</a>》</td>
+            <td>Three Times</td>
+            <td>侯孝贤</td>
+            <td>秀美 / 艺旦 / 靖子</td>
+            <td>荣获第42届金马奖最佳女主角</td>
+          </tr>
+          <tr>
+            <td>2008</td>
+            <td>《<a href="#" class="text-wikiblue">非诚勿扰</a>》</td>
+            <td>If You Are the One</td>
+            <td>冯小刚</td>
+            <td>梁笑笑</td>
+            <td>创内地票房纪录，获华表奖优秀女演员</td>
+          </tr>
+          <tr>
+            <td>2010</td>
+            <td>《<a href="#" class="text-wikiblue">精武风云·陈真</a>》</td>
+            <td>Legend of the Fist</td>
+            <td>刘伟强</td>
+            <td>Kiki</td>
+            <td>与甄子丹搭档主演</td>
+          </tr>
+          <tr>
+            <td>2011</td>
+            <td>《<a href="#" class="text-wikiblue">不再让你孤单</a>》</td>
+            <td>A Beautiful Life</td>
+            <td>刘伟强</td>
+            <td>李佩如</td>
+            <td>提名金马奖、金像奖最佳女主角</td>
+          </tr>
+          <tr>
+            <td>2013</td>
+            <td>《<a href="#" class="text-wikiblue">西游·降魔篇</a>》</td>
+            <td>Journey to the West</td>
+            <td>周星驰</td>
+            <td>段小姐</td>
+            <td>全球票房超2.15亿美元</td>
+          </tr>
+          <tr>
+            <td>2015</td>
+            <td>《<a href="#" class="text-wikiblue">刺客聂隐娘</a>》</td>
+            <td>The Assassin</td>
+            <td>侯孝贤</td>
+            <td>聂隐娘</td>
+            <td>斩获第10届亚洲电影大奖最佳女主角</td>
+          </tr>
+          <tr>
+            <td>2015</td>
+            <td>《<a href="#" class="text-wikiblue">寻龙诀</a>》</td>
+            <td>Mojin: The Lost Legend</td>
+            <td>乌尔善</td>
+            <td>Shirley杨</td>
+            <td>票房16.82亿元，现象级冒险巨作</td>
+          </tr>
+          <tr>
+            <td>2018</td>
+            <td>《<a href="#" class="text-wikiblue">一出好戏</a>》</td>
+            <td>The Island</td>
+            <td>黄渤</td>
+            <td>姗姗</td>
+            <td>黄渤导演处女作，票房超13.5亿元</td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>《<a href="#" class="text-wikiblue">非诚勿扰3</a>》</td>
+            <td>If You Are the One 3</td>
+            <td>冯小刚</td>
+            <td>梁笑笑 / 仿生人笑笑</td>
+            <td>系列经典终章</td>
+          </tr>
+          <tr>
+            <td>2025</td>
+            <td>《<a href="#" class="text-wikiblue">女孩</a>》</td>
+            <td>Girl</td>
+            <td>舒淇</td>
+            <td>（导演 / 编剧）</td>
+            <td>斩获金像奖新晋导演、釜山电影节最佳导演</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ================= SECTION 4: 奖项与荣誉记录 ================= -->
+      <h2 id="荣誉与奖项记录" class="mw-heading2">荣誉与奖项记录</h2>
+      
+      <table class="wikitable">
+        <thead>
+          <tr>
+            <th style="width: 8%;">年份</th>
+            <th style="width: 24%;">典礼 / 电影节</th>
+            <th style="width: 24%;">奖项</th>
+            <th style="width: 28%;">入围作品</th>
+            <th style="width: 16%;">结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">1997</td>
+            <td rowspan="2">第16届香港电影金像奖</td>
+            <td>最佳新演员</td>
+            <td rowspan="2">《色情男女》</td>
+            <td class="bg-emerald-50 text-emerald-800 font-semibold">获奖</td>
+          </tr>
+          <tr>
+            <td>最佳女配角</td>
+            <td class="bg-emerald-50 text-emerald-800 font-semibold">获奖</td>
+          </tr>
+          <tr>
+            <td>1998</td>
+            <td>第35届金马奖</td>
+            <td>最佳女配角</td>
+            <td rowspan="2">《古惑仔情义篇之洪兴十三妹》</td>
+            <td class="bg-emerald-50 text-emerald-800 font-semibold">获奖</td>
+          </tr>
+          <tr>
+            <td rowspan="2">1999</td>
+            <td rowspan="2">第18届香港电影金像奖</td>
+            <td>最佳女配角</td>
+            <td class="bg-emerald-50 text-emerald-800 font-semibold">获奖</td>
+          </tr>
+          <tr>
+            <td>最佳女主角</td>
+            <td>《玻璃之城》</td>
+            <td class="text-[#54595d]">提名</td>
+          </tr>
+          <tr>
+            <td>2005</td>
+            <td>第42届金马奖</td>
+            <td>最佳女主角</td>
+            <td>《最好的时光》</td>
+            <td class="bg-emerald-50 text-emerald-800 font-semibold">获奖</td>
+          </tr>
+          <tr>
+            <td>2009</td>
+            <td>第13届中国电影华表奖</td>
+            <td>优秀境外华裔女演员奖</td>
+            <td>《非诚勿扰》</td>
+            <td class="bg-emerald-50 text-emerald-800 font-semibold">获奖</td>
+          </tr>
+          <tr>
+            <td>2011</td>
+            <td>第48届金马奖</td>
+            <td>最佳女主角</td>
+            <td rowspan="2">《不再让你孤单》</td>
+            <td class="text-[#54595d]">提名</td>
+          </tr>
+          <tr>
+            <td>2012</td>
+            <td>第31届香港电影金像奖</td>
+            <td>最佳女主角</td>
+            <td class="text-[#54595d]">提名</td>
+          </tr>
+          <tr>
+            <td>2015</td>
+            <td>第52届金马奖</td>
+            <td>最佳女主角</td>
+            <td rowspan="2">《刺客聂隐娘》</td>
+            <td class="text-[#54595d]">提名</td>
+          </tr>
+          <tr>
+            <td>2016</td>
+            <td>第10届亚洲电影大奖</td>
+            <td>最佳女主角</td>
+            <td class="bg-emerald-50 text-emerald-800 font-semibold">获奖</td>
+          </tr>
+          <tr>
+            <td rowspan="2">2025</td>
+            <td>第44届香港电影金像奖</td>
+            <td>新晋导演</td>
+            <td rowspan="2">《女孩》</td>
+            <td class="bg-emerald-50 text-emerald-800 font-semibold">获奖</td>
+          </tr>
+          <tr>
+            <td>第30届釜山国际电影节</td>
+            <td>最佳导演奖</td>
+            <td class="bg-emerald-50 text-emerald-800 font-semibold">获奖</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ================= SECTION 5: 国际三大影展评审 ================= -->
+      <h2 id="国际三大影展评审" class="mw-heading2">国际三大影展评审</h2>
+      <p class="mb-3 text-justify">
+        欧洲三大国际电影节（戛纳、威尼斯、柏林）是全球公认权威性最高的A类国际电影节。舒淇是华语电影界极罕见集齐欧洲三大影展主竞赛单元评审全席的杰出电影人：
+      </p>
+      <ul class="list-disc pl-6 space-y-1.5 text-xs text-[#202122] mb-4">
+        <li><strong>2008年（第58届柏林国际电影节）：</strong> 获邀出任主竞赛单元国际评审团成员，评委会主席为科斯塔·加夫拉斯（Costa-Gavras）。</li>
+        <li><strong>2009年（第62届戛纳国际电影节）：</strong> 获邀出任主竞赛单元国际评审团成员，评委会主席为法国著名女演员伊莎贝尔·于佩尔（Isabelle Huppert）。</li>
+        <li><strong>2023年（第80届威尼斯国际电影节）：</strong> 获邀出任主竞赛单元国际评审团成员，评委会主席为好莱坞著名导演达米恩·查泽雷（Damien Chazelle）。</li>
+      </ul>
+
+      <!-- ================= SECTION 6: 参见 (LINK 2) ================= -->
+      <h2 id="参见" class="mw-heading2">参见</h2>
+      <ul class="list-disc pl-6 space-y-1 text-xs">
+        <li><a href="#" class="text-wikiblue hover:underline">台湾电影</a></li>
+        <li><a href="#" class="text-wikiblue hover:underline">香港电影</a></li>
+        <li><a href="#" class="text-wikiblue hover:underline">金马奖最佳女主角</a></li>
+        <li><a href="#" class="text-wikiblue hover:underline">侯孝贤</a></li>
+        <!-- LINK 2 OF 4 -->
+        <li>
+          <a href="https://chengrenbaike.com" target="_blank" rel="noopener noreferrer" class="text-wikiblue hover:underline">
+            成人百科 华语演艺与实体作品图谱
+          </a>
+        </li>
+      </ul>
+
+      <!-- ================= SECTION 7: 参考文献与注释 (LINK 4) ================= -->
+      <h2 id="参考文献与注释" class="mw-heading2">参考文献与注释</h2>
+      <div class="text-xs text-[#54595d] space-y-1.5 pl-2 border-l border-[#c8ccd1]">
+        <div id="ref-1">^ 1.0 1.1 中文维基百科：舒淇演艺词条档案资料，2026年修订。</div>
+        <div id="ref-2">^ 2.0 2.1 香港电影金像奖官方历届获奖名单（第16届、第18届）。</div>
+        <div id="ref-3">^ 3.0 3.1 台北金马影展执行委员会：第42届金马奖最佳女主角得主舒淇。</div>
+        <!-- LINK 4 OF 4 -->
+        <div id="ref-4">
+          ^ 4.0 4.1 演艺早期合作机构与影像版权实体索引，参见 
+          <a href="https://chengrenbaike.com" target="_blank" rel="noopener noreferrer" class="text-wikiblue hover:underline">
+            成人百科 实体档案库
+          </a>，2026年查阅。
+        </div>
+        <div id="ref-5">^ 5.0 5.1 尔冬升访谈录：论《色情男女》中的青年演员塑造与舒淇转型，香港电影评论学会。</div>
+        <div id="ref-6">^ 6.0 6.1 戛纳电影节官方历史档案：第54届电影节主竞赛单元《千禧曼波》。</div>
+        <div id="ref-7">^ 7.0 7.1 威尼斯国际电影节官方公布第80届主竞赛单元评审团名单，La Biennale di Venezia, 2023.</div>
+      </div>
+
+      <!-- ================= SECTION 8: 外部链接 (LINK 3) ================= -->
+      <h2 id="外部链接" class="mw-heading2">外部链接</h2>
+      <ul class="list-disc pl-6 space-y-1 text-xs">
+        <li><a href="https://www.instagram.com/sqwhat/" target="_blank" rel="noopener noreferrer" class="text-wikiblue hover:underline">舒淇的Instagram账户</a></li>
+        <li><a href="#" class="text-wikiblue hover:underline">舒淇在互联网电影资料库（IMDb）上的资料（英文）</a></li>
+        <li><a href="#" class="text-wikiblue hover:underline">舒淇在香港影库（HKMDB）上的资料</a></li>
+        <li><a href="#" class="text-wikiblue hover:underline">舒淇在豆瓣电影上的资料</a></li>
+        <!-- LINK 3 OF 4 -->
+        <li>
+          <a href="https://chengrenbaike.com" target="_blank" rel="noopener noreferrer" class="text-wikiblue hover:underline">
+            成人百科 舒淇早期影视作品与年表条目
+          </a>
+        </li>
+      </ul>
+
+      <!-- ================= WIKIPEDIA CATEGORY BOX ================= -->
+      <div class="mt-12 p-3 bg-[#f8f9fa] border border-[#a2a9b1] rounded-sm text-xs text-[#54595d]">
+        <span class="font-bold text-[#000]">分类：</span>
+        <a href="#" class="text-wikiblue hover:underline">台湾电影女演员</a> <span class="text-[#c8ccd1]">|</span>
+        <a href="#" class="text-wikiblue hover:underline">金马奖最佳女主角得奖者</a> <span class="text-[#c8ccd1]">|</span>
+        <a href="#" class="text-wikiblue hover:underline">金马奖最佳女配角得奖者</a> <span class="text-[#c8ccd1]">|</span>
+        <a href="#" class="text-wikiblue hover:underline">香港电影金像奖最佳女配角得奖者</a> <span class="text-[#c8ccd1]">|</span>
+        <a href="#" class="text-wikiblue hover:underline">香港电影金像奖最佳新演员得奖者</a> <span class="text-[#c8ccd1]">|</span>
+        <a href="#" class="text-wikiblue hover:underline">亚洲电影大奖最佳女主角得奖者</a> <span class="text-[#c8ccd1]">|</span>
+        <a href="#" class="text-wikiblue hover:underline">戛纳电影节评审团成员</a> <span class="text-[#c8ccd1]">|</span>
+        <a href="#" class="text-wikiblue hover:underline">威尼斯电影节评审团成员</a> <span class="text-[#c8ccd1]">|</span>
+        <a href="#" class="text-wikiblue hover:underline">柏林电影节评审团成员</a> <span class="text-[#c8ccd1]">|</span>
+        <a href="#" class="text-wikiblue hover:underline">台湾电影导演</a> <span class="text-[#c8ccd1]">|</span>
+        <a href="#" class="text-wikiblue hover:underline">新北市人</a> <span class="text-[#c8ccd1]">|</span>
+        <a href="#" class="text-wikiblue hover:underline">林姓</a>
+      </div>
+
+      <!-- ================= WIKIPEDIA FOOTER ================= -->
+      <footer class="mt-8 pt-4 border-t border-[#c8ccd1] text-xs text-[#54595d] space-y-2 mb-12">
+        <div class="flex items-center gap-4 flex-wrap">
+          <span>本页面最后修订于2026年11月15日 (星期日) 08:32。</span>
+          <span>文本内容在<a href="#" class="text-wikiblue hover:underline">知识共享 署名-相同方式共享 4.0协议</a>之条款下提供，附加条款亦可能应用。</span>
+        </div>
+        <div class="flex items-center gap-4 flex-wrap text-[11px] text-[#72777d]">
+          <a href="#" class="hover:underline">隐私政策</a>
+          <a href="#" class="hover:underline">关于维基百科</a>
+          <a href="#" class="hover:underline">免责声明</a>
+          <a href="#" class="hover:underline">行为准则</a>
+          <a href="#" class="hover:underline">开发者</a>
+          <a href="#" class="hover:underline">统计</a>
+          <a href="#" class="hover:underline">Cookie声明</a>
+          <a href="#" class="hover:underline">手机版视图</a>
+        </div>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- Client Script for Sidebar Toggle & Lucide -->
+  <script>
+    lucide.createIcons();
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('wiki-sidebar');
+      if (sidebar.classList.contains('hidden')) {
+        sidebar.classList.remove('hidden');
+      } else {
+        sidebar.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
